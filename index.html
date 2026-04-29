@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniUtility | The Student Daily Utility Service</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #020617; color: #f8fafc; scroll-behavior: smooth; overflow-x: hidden; }
+        .slate-glass { background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(51, 65, 85, 0.3); }
+        .feature-card { background: #0f172a; border: 1px solid #1e293b; padding: 2rem; border-radius: 1.5rem; transition: transform 0.3s ease; }
+        .feature-card:hover { transform: translateY(-5px); border-color: #4f46e5; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .hidden-section { display: none; }
+        
+        /* Mobile Specific Tweaks */
+        @media (max-width: 640px) {
+            .hero-text { font-size: 3.5rem !important; line-height: 1 !important; }
+            .section-padding { padding: 4rem 1.5rem !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <section id="landing-page" class="w-full overflow-x-hidden">
+        <nav class="p-4 md:p-6 flex justify-between items-center max-w-7xl mx-auto w-full sticky top-0 z-50 bg-slate-950/80 backdrop-blur-md">
+            <h1 class="text-xl md:text-2xl font-black text-indigo-500 tracking-tighter">UNI-UTILITY</h1>
+            <div class="hidden md:flex gap-8 text-sm font-medium text-slate-400">
+                <a href="#features" class="hover:text-white transition">Features</a>
+                <a href="#how" class="hover:text-white transition">Benefits</a>
+            </div>
+            <button onclick="showAuth()" class="bg-indigo-600 px-4 md:px-6 py-2 rounded-lg font-bold text-sm hover:bg-indigo-500 transition">Portal Login</button>
+        </nav>
+        
+        <header class="min-h-[90vh] flex flex-col items-center justify-center px-4 md:px-6 text-center section-padding">
+            <div class="inline-block bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 px-4 py-1 rounded-full text-[10px] md:text-xs font-bold mb-6 tracking-widest uppercase">
+                2,000+ Students Verified
+            </div>
+            <h1 class="hero-text text-5xl md:text-9xl font-black mb-8 leading-tight tracking-tighter">
+                CAMPUS LIFE,<br><span class="text-indigo-500 underline decoration-indigo-800">UPGRADED.</span>
+            </h1>
+            <p class="text-slate-400 text-base md:text-xl max-w-3xl mb-12 px-2">
+                The premier verified student-only e-commerce platform. From calculators to laundry pods, 
+                get daily utilities delivered to your hostel room.
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 w-full md:w-auto px-6">
+                <button onclick="showAuth()" class="bg-white text-slate-950 px-12 py-5 rounded-2xl font-black text-lg md:text-xl hover:bg-indigo-500 hover:text-white transition-all shadow-xl shadow-white/5">Start Shopping</button>
+                <div class="flex items-center justify-center gap-2 py-4 text-slate-500 text-[10px] md:text-xs font-bold uppercase tracking-widest">
+                    <span>⚡︎ Fast Delivery</span>
+                    <span>•</span>
+                    <span>🔒 .edu Secured</span>
+                </div>
+            </div>
+        </header>
+
+        <section id="features" class="py-20 px-6 max-w-7xl mx-auto border-t border-slate-900">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                <div class="feature-card">
+                    <div class="text-indigo-500 text-2xl font-black mb-4">01</div>
+                    <h3 class="text-xl font-bold mb-3">Academic Gear</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Scientific calculators, lab kits, and notebooks always in stock for exam season.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="text-indigo-500 text-2xl font-black mb-4">02</div>
+                    <h3 class="text-xl font-bold mb-3">Dorm Essentials</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Never run out of laundry pods or detergent. We bulk-buy so you save money as a student.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="text-indigo-500 text-2xl font-black mb-4">03</div>
+                    <h3 class="text-xl font-bold mb-3">Hostel Delivery</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Don't leave your room. Simply specify your hostel block and room number at checkout.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="py-12 border-t border-slate-900 text-center text-slate-600 text-[10px] font-bold uppercase tracking-widest px-4">
+            © 2026 UNI-UTILITY CAMPUS LOGISTICS • BUILT FOR STUDENTS ONLY
+        </footer>
+    </section>
+
+    <div id="auth-modal" class="hidden-section fixed inset-0 bg-slate-950/98 backdrop-blur-3xl z-[100] flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 p-6 md:p-10 rounded-3xl w-full max-w-md shadow-2xl">
+            <h2 class="text-2xl md:text-3xl font-black text-white mb-6">Student Access</h2>
+            <div class="space-y-4">
+                <input id="reg-name" type="text" placeholder="Full Name" class="w-full p-4 bg-slate-950 border border-slate-800 rounded-xl outline-none focus:border-indigo-500 text-white text-sm">
+                <input id="reg-email" type="email" placeholder="name@university.edu" class="w-full p-4 bg-slate-950 border border-slate-800 rounded-xl outline-none focus:border-indigo-500 text-white text-sm">
+                <input id="reg-hostel" type="text" placeholder="Hostel Block & Room" class="w-full p-4 bg-slate-950 border border-slate-800 rounded-xl outline-none focus:border-indigo-500 text-white text-sm">
+            </div>
+            <button onclick="processAuth()" class="w-full bg-indigo-600 p-4 rounded-xl font-bold text-white mt-8 hover:bg-indigo-500 transition-all text-sm uppercase">Verify & Enter Market</button>
+            <button onclick="hideAuth()" class="w-full mt-4 text-slate-500 text-[10px] font-bold hover:text-white uppercase tracking-widest">Cancel</button>
+        </div>
+    </div>
+
+    <section id="dashboard" class="hidden-section min-h-screen">
+        <nav class="slate-glass sticky top-0 z-50 px-4 md:px-8 py-4 flex justify-between items-center">
+            <h1 class="text-lg md:text-xl font-black text-indigo-500">UNI-UTILITY</h1>
+            <div class="flex gap-2 md:gap-4 items-center">
+                <button onclick="toggleCart()" class="bg-slate-900 border border-slate-800 px-3 md:px-4 py-2 rounded-xl text-[10px] md:text-xs font-bold hover:border-indigo-500">
+                    BAG (<span id="cart-count">0</span>)
+                </button>
+                <button onclick="location.reload()" class="text-slate-500 hover:text-white text-[10px] md:text-xs font-bold">LOGOUT</button>
+            </div>
+        </nav>
+
+        <main class="max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-12">
+            <div id="grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
+                </div>
+        </main>
+
+        <div id="cart-drawer" class="hidden-section fixed inset-0 z-[200] bg-black/60 flex justify-end">
+            <div class="w-full sm:max-w-md bg-slate-900 h-full p-6 md:p-8 flex flex-col shadow-2xl border-l border-slate-800">
+                <div class="flex justify-between items-center mb-8">
+                    <h2 class="text-xl md:text-2xl font-black">Your Checkout</h2>
+                    <button onclick="toggleCart()" class="text-slate-500 font-bold text-xs uppercase">Close</button>
+                </div>
+                <div id="cart-items" class="flex-1 overflow-y-auto space-y-4 no-scrollbar">
+                    </div>
+                <div class="pt-8 border-t border-slate-800">
+                    <div class="flex justify-between text-xl font-black mb-6">
+                        <span>Total</span>
+                        <span id="cart-total" class="text-indigo-400">$0.00</span>
+                    </div>
+                    <button onclick="checkout()" class="w-full bg-indigo-600 py-4 md:py-5 rounded-2xl font-black text-base md:text-lg hover:bg-indigo-500 shadow-lg shadow-indigo-600/20 transition-all">Complete Purchase</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const products = [
+            { id: 1, name: "Casio FX-991EX", price: 35, cat: "TECH", img: "https://images.unsplash.com/photo-1574607383476-f517f260d30b?w=400" },
+            { id: 2, name: "Dorm Laundry Kit", price: 18, cat: "LAUNDRY", img: "https://images.unsplash.com/photo-1545173168-9f18675ee298?w=400" },
+            { id: 3, name: "A4 Hardcover Pack", price: 12, cat: "NOTEBOOKS", img: "https://images.unsplash.com/photo-1531346878377-a5be20888e57?w=400" },
+            { id: 4, name: "Laundry Drying Rack", price: 25, cat: "LAUNDRY", img: "https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?w=400" },
+            { id: 5, name: "Scientific Calc Pro", price: 85, cat: "TECH", img: "https://images.unsplash.com/photo-1594814171200-fe2d5258ca42?w=400" },
+            { id: 6, name: "A5 Academic Planner", price: 10, cat: "NOTEBOOKS", img: "https://images.unsplash.com/photo-1506784919141-93b4822ae755?w=400" }
+        ];
+
+        let cart = [];
+        let total = 0;
+
+        function showAuth() { document.getElementById('auth-modal').style.display = 'flex'; }
+        function hideAuth() { document.getElementById('auth-modal').style.display = 'none'; }
+        function toggleCart() { 
+            const drawer = document.getElementById('cart-drawer');
+            drawer.style.display = drawer.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        function processAuth() {
+            const email = document.getElementById('reg-email').value;
+            if (email.toLowerCase().endsWith('.edu')) {
+                document.getElementById('landing-page').style.display = 'none';
+                document.getElementById('auth-modal').style.display = 'none';
+                document.getElementById('dashboard').style.display = 'block';
+                renderProducts();
+            } else { alert("A valid .edu student email is required."); }
+        }
+
+        function renderProducts() {
+            const grid = document.getElementById('grid');
+            grid.innerHTML = products.map(p => `
+                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-4 md:p-6 group transition hover:border-indigo-500 shadow-sm">
+                    <img src="${p.img}" class="w-full h-40 md:h-48 object-cover rounded-2xl mb-4 md:mb-6 opacity-80 group-hover:opacity-100 transition">
+                    <p class="text-[9px] font-black text-indigo-500 tracking-widest mb-1 md:mb-2 uppercase">${p.cat}</p>
+                    <h3 class="text-base md:text-lg font-bold mb-4 md:mb-6 leading-tight">${p.name}</h3>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xl md:text-2xl font-black">$${p.price}</span>
+                        <button onclick="addToCart(${p.id})" class="bg-white text-slate-950 px-3 md:px-4 py-2 rounded-xl text-[10px] md:text-xs font-black hover:bg-indigo-500 hover:text-white transition">ADD TO BAG</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function addToCart(id) {
+            const item = products.find(p => p.id === id);
+            cart.push(item);
+            total += item.price;
+            updateUI();
+        }
+
+        function updateUI() {
+            document.getElementById('cart-count').innerText = cart.length;
+            document.getElementById('cart-total').innerText = `$${total.toFixed(2)}`;
+            const container = document.getElementById('cart-items');
+            container.innerHTML = cart.map((item, index) => `
+                <div class="flex justify-between items-center bg-slate-950 p-4 rounded-xl border border-slate-800">
+                    <div>
+                        <p class="font-bold text-xs md:text-sm">${item.name}</p>
+                        <p class="text-indigo-500 text-[10px] md:text-xs font-bold">$${item.price}</p>
+                    </div>
+                    <button onclick="removeItem(${index})" class="text-red-500 text-[10px] font-bold uppercase">Remove</button>
+                </div>
+            `).join('');
+        }
+
+        function removeItem(index) {
+            total -= cart[index].price;
+            cart.splice(index, 1);
+            updateUI();
+        }
+
+        function checkout() {
+            if (cart.length === 0) return alert("Your bag is empty!");
+            alert(`Processing Order for $${total.toFixed(2)}...\nYour daily utilities are being prepared for Hostel Delivery!`);
+            cart = []; total = 0; updateUI(); toggleCart();
+        }
+    </script>
+</body>
+</html>
